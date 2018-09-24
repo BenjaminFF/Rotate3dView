@@ -24,7 +24,7 @@
 具体细节请参考这篇文章：
 
 
-###注意事项：
+### 注意事项：
 - 需要在Rotate3dView的父布局上加入android:clipChildren="false"才可以使旋转overflow。
 - 可以用setDuration()设置旋转时间。
 
