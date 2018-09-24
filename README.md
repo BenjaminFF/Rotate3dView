@@ -12,7 +12,6 @@
 [https://jitpack.io/#BenjaminFF/Rotate3dView/v1.0](https://jitpack.io/#BenjaminFF/Rotate3dView/v1.0)
 
 为了丰富前后页的内容，和实现视图和数据分离，我**模仿了RecyclerView的Adapter实现**。所以要先创建一个Adaper,实现以下方法：
-[https://blog.csdn.net/BenjaminFFF/article/details/82828289](https://blog.csdn.net/BenjaminFFF/article/details/82828289)
 
 > public abstract FrontVH onCreateFrontViewHolder(ViewGroup parent);
 
@@ -23,6 +22,7 @@
 >public abstract void onBindBackViewHolder(BackVH holder);
 
 具体细节请参考这篇文章：
+[https://blog.csdn.net/BenjaminFFF/article/details/82828289](https://blog.csdn.net/BenjaminFFF/article/details/82828289)
 
 
 ### 注意事项：
