@@ -131,6 +131,7 @@ public class Rotate3dView extends ViewGroup {
                 float diff = Math.abs(mXMove - mXDown);
                 // 当手指拖动值大于TouchSlop值时，认为应该进行滚动，拦截子控件的事件
                 if (diff > mTouchSlop||isRotating) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
                     return true;
                 }
                 break;
