@@ -121,7 +121,7 @@ public class Rotate3dView extends ViewGroup {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
+    public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mXDown = ev.getRawX();
@@ -132,6 +132,23 @@ public class Rotate3dView extends ViewGroup {
                 // 当手指拖动值大于TouchSlop值时，认为应该进行滚动，拦截子控件的事件
                 if (diff > mTouchSlop||isRotating) {
                     getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mXDown = ev.getRawX();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mXMove = ev.getRawX();
+                float diff = Math.abs(mXMove - mXDown);
+                // 当手指拖动值大于TouchSlop值时，认为应该进行滚动，拦截子控件的事件
+                if (diff > mTouchSlop||isRotating) {
                     return true;
                 }
                 break;
