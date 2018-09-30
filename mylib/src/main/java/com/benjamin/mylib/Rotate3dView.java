@@ -107,7 +107,7 @@ public class Rotate3dView extends ViewGroup {
         mHeight=MeasureSpec.getSize(heightMeasureSpec);
         for(int i=0;i<2;i++){
             View childView=getChildAt(i);
-            measureChild(childView,widthMeasureSpec,heightMeasureSpec);
+            measureChildWithMargins(childView,widthMeasureSpec,0,heightMeasureSpec,0);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
@@ -119,8 +119,8 @@ public class Rotate3dView extends ViewGroup {
             ViewGroup.MarginLayoutParams params=(MarginLayoutParams) childView.getLayoutParams();
 
             childView.layout(params.leftMargin,params.topMargin,
-                    params.leftMargin+childView.getMeasuredWidth()-params.rightMargin,
-                    params.topMargin+childView.getMeasuredHeight()-params.bottomMargin);
+                    params.leftMargin+childView.getMeasuredWidth(),
+                    params.topMargin+childView.getMeasuredHeight());
         }
     }
 
