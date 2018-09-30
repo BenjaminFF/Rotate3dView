@@ -116,7 +116,9 @@ public class Rotate3dView extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         for(int i=0;i<2;i++){
             View childView=getChildAt(i);
-            childView.layout(0,0,childView.getMeasuredWidth(),childView.getMeasuredHeight());
+            ViewGroup.MarginLayoutParams params=(MarginLayoutParams) childView.getLayoutParams();
+
+            childView.layout(params.leftMargin,params.topMargin,params.leftMargin+childView.getMeasuredWidth(),params.topMargin+childView.getMeasuredHeight());
         }
     }
 
@@ -292,5 +294,8 @@ public class Rotate3dView extends ViewGroup {
         canvas.restore();
     }
 
-
+    @Override
+    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
+        return new MarginLayoutParams(getContext(), attrs);
+    }
 }
