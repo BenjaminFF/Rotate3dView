@@ -118,7 +118,9 @@ public class Rotate3dView extends ViewGroup {
             View childView=getChildAt(i);
             ViewGroup.MarginLayoutParams params=(MarginLayoutParams) childView.getLayoutParams();
 
-            childView.layout(params.leftMargin,params.topMargin,params.leftMargin+childView.getMeasuredWidth(),params.topMargin+childView.getMeasuredHeight());
+            childView.layout(params.leftMargin,params.topMargin,
+                    params.leftMargin+childView.getMeasuredWidth()-params.rightMargin,
+                    params.topMargin+childView.getMeasuredHeight()-params.bottomMargin);
         }
     }
 
