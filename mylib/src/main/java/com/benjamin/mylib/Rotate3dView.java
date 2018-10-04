@@ -187,8 +187,10 @@ public class Rotate3dView extends ViewGroup {
     }
 
     public void rotateCard(boolean antiClockWised){
-        this.antiClockWised=antiClockWised;
-        startRotateAnimation();
+        if(!isRotating){
+            this.antiClockWised=antiClockWised;
+            startRotateAnimation();
+        }
     }
 
     private void startRotateAnimation(){     //reverse==true代表逆时针旋转
