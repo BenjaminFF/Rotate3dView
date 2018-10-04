@@ -321,4 +321,8 @@ public class Rotate3dView extends ViewGroup {
     public void addRotate3dListener(Rotate3dListener rotate3dListener){
         this.rotate3dListener=rotate3dListener;
     }
+
+    public void removeRotate3dListener(){
+        this.rotate3dListener=null;
+    }
 }
