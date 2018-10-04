@@ -5,12 +5,14 @@ import android.content.Context;
 import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Outline;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 
 /**
  * Created by benja on 2018/9/21.
@@ -184,6 +186,11 @@ public class Rotate3dView extends ViewGroup {
         return true;
     }
 
+    public void rotateCard(boolean antiClockWised){
+        this.antiClockWised=antiClockWised;
+        startRotateAnimation();
+    }
+
     private void startRotateAnimation(){     //reverse==true代表逆时针旋转
         ValueAnimator valueAnimator;
         if(antiClockWised){
@@ -239,7 +246,7 @@ public class Rotate3dView extends ViewGroup {
                 }
             }
         }
-        //super.dispatchDraw(canvas);
+       // super.dispatchDraw(canvas);
     }
 
     private void initChildViews(Canvas canvas){
