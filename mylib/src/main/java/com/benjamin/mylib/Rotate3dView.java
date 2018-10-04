@@ -31,6 +31,7 @@ public class Rotate3dView extends ViewGroup {
     float scale = 1;    // <------- 像素密度
 
     private int duration;
+    private Rotate3dListener rotate3dListener;
 
     public abstract static class Adapter<FrontVH extends ViewHolder,BackVH extends ViewHolder>{
         public abstract FrontVH onCreateFrontViewHolder(ViewGroup parent);
@@ -193,6 +194,10 @@ public class Rotate3dView extends ViewGroup {
         }
     }
 
+    public boolean isFrontReversed(){
+        return frontReversed;
+    }
+
     private void startRotateAnimation(){     //reverse==true代表逆时针旋转
         ValueAnimator valueAnimator;
         if(antiClockWised){
@@ -217,6 +222,9 @@ public class Rotate3dView extends ViewGroup {
                         getChildAt(1).setVisibility(VISIBLE);
                     }
                     mAngle=0;
+                    if(rotate3dListener!=null){
+                        rotate3dListener.onRotateEnd();
+                    }
                 }
             }
         });
@@ -308,5 +316,9 @@ public class Rotate3dView extends ViewGroup {
     @Override
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new MarginLayoutParams(getContext(), attrs);
+    }
+
+    public void addRotate3dListener(Rotate3dListener rotate3dListener){
+        this.rotate3dListener=rotate3dListener;
     }
 }
