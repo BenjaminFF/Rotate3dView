@@ -8,8 +8,21 @@
 ### 怎么使用：
 
 该库是发布到JitPack上的。
-首先怎么引用，参考这个链接：
-[https://jitpack.io/#BenjaminFF/Rotate3dView/v1.0](https://jitpack.io/#BenjaminFF/Rotate3dView/v1.0)
+在root build.gradle中加入maven { url 'https://jitpack.io' }。
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+然后加入依赖：
+```
+dependencies {
+	        implementation 'com.github.BenjaminFF:Rotate3dView:1.2'
+	}
+```
 
 为了丰富前后页的内容，和实现视图和数据分离，我**模仿了RecyclerView的Adapter实现**。所以要先创建一个Adaper,实现以下方法：
 
