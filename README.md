@@ -25,9 +25,14 @@
 [https://blog.csdn.net/BenjaminFFF/article/details/82828289](https://blog.csdn.net/BenjaminFFF/article/details/82828289)
 
 
+### 方法
+- 可以用setDuration()设置旋转时间。
+- 加入了onRotateEnd()监听卡片旋转结束的事件。
+
 ### 注意事项：
 - 需要在Rotate3dView的父布局上加入android:clipChildren="false"才可以使旋转overflow。
-- 可以用setDuration()设置旋转时间。
+- 利用requestDisallowInterceptTouchEvent()这个方法处理了与父组件的滑动冲突。
+- 目前只能左右滑，上下滑动后续实现。
 
 ### LICENSE
 ```
